@@ -19,25 +19,11 @@ public class Time {
             minute = 0;
     }
 
-    public void increment()
-    {
-        if (hour == 23 && minute == 59)
-        {
-            hour = 0;
-            minute = 0;
-        }
-        else
-        {
-            minute++;
-            if (minute == 60)
-            {
-                hour++;
-                minute = 0;
-            }
-            else if ( hour == 24)
-                hour = 0;
-        }
+    private int getHour() {
+        return hour;
     }
 
-
+    private int getMinute() {
+        return minute;
+    }
 }

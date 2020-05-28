@@ -1,32 +1,47 @@
-public class Event implements Comparable<Event>{
+import java.util.*;
+import java.util.TreeMap;
 
-   private String title;
-    private EventCategory category;
+public class Event implements Comparable<Event> {
 
-    private String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    private EventCategory getCategory() {
-        return category;
-    }
+	private String title;
+	private EventCategory category;
+	private Time time;
 
 
-    public void setCategory(EventCategory category) {
-        this.category = category;
-    }
-    
-    @Override
-    public int compareTo(Event o) {
-        int bookTitle = this.title.compareTo(o.title);
-        //Sorting by first name if last name is same d
-        return bookTitle == 0 ? this.category.compareTo(o.category) : bookTitle;
-    }
-    }
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public EventCategory getCategory() {
+		return category;
+	}
+
+	public void setCategory(EventCategory category) {
+		this.category = category;
+	}
+
+	@Override
+	public int compareTo(Event o) {
+		int title = this.title.compareTo(o.title);
+		return title == 0 ? this.category.compareTo(o.category) : title;
+	}
+
+
+
+	void addCatalogEntry(Event event, Time time) {
+		if (event.title != null) {
+
+
+		}
+	}
+
+
+}
+
 
 
 
