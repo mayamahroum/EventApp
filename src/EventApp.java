@@ -1,18 +1,25 @@
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class EventApp {
 
     public static void main(String[] args) {
-        TreeMap<Event, Time> map = new TreeMap<>();
-        Event ESE = new Event();
-        ESE.setTitle("NewEvent");
-        ESE.setCategory(EventCategory.PRESENTATION);
-        Time time = new Time(12, 32);
-        map.put(ESE, time);
+        EventCatalogImpl catalog = new EventCatalogImpl();
+        Event newEvent1 = new Event("ESE", EventCategory.EXHIBITION);
+        Event newEvent2 = new Event("First Day", EventCategory.PRESENTATION);
+        Event newEvent3 = new Event("Second Day", EventCategory.PRESENTATION);
+        catalog.addCatalogEntry(newEvent1, new HashSet<>());
+        catalog.addCatalogEntry(newEvent2, new HashSet<>());
+        catalog.addCatalogEntry(newEvent3, new HashSet<>());
+        Time t = new Time(10, 30);
+        catalog.addTimeToEvent(newEvent3, t);
+        Set<Event> allEvents = catalog.getAllEvents();
+        catalog.getTimesOfEvent(newEvent3);
+        Map<Event,Set<Time>> allPresentations = catalog.filterByEventCategory(EventCategory.PRESENTATION);
+        catalog.deleteEvent(newEvent1);
+        catalog.deleteTime(newEvent3, t);
+        Set<Event> allEventsAfter = catalog.getAllEvents();
+        catalog.getTimesOfEvent(newEvent3);
 
-        for (Map.Entry m : map.entrySet()) {
-            System.out.println(m);
-        }
     }
-}
+    }
+

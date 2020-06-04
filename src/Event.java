@@ -6,22 +6,19 @@ public class Event implements Comparable<Event> {
 	private String title;
 	private EventCategory category;
 	private Time time;
+	private TreeMap<Event, Set<Time>> map;
 
+	public Event(String title, EventCategory category){
+	   this.title = title;
+	   this.category = category;
+    }
 
-	public String getTitle() {
+    public String getTitle() {
 		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
 	}
 
 	public EventCategory getCategory() {
 		return category;
-	}
-
-	public void setCategory(EventCategory category) {
-		this.category = category;
 	}
 
 	@Override
@@ -29,16 +26,6 @@ public class Event implements Comparable<Event> {
 		int title = this.title.compareTo(o.title);
 		return title == 0 ? this.category.compareTo(o.category) : title;
 	}
-
-
-
-	void addCatalogEntry(Event event, Time time) {
-		if (event.title != null) {
-
-
-		}
-	}
-
 
 }
 
